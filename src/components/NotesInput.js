@@ -33,8 +33,12 @@ class NotesInput extends React.Component {
   }
 
   onClickEventHandler(event) {
-    event.preventDefault();
-    this.props.addNote(this.state);
+    if (this.state.title.length > 4 && this.state.body.length > 4) {
+      event.preventDefault();
+      this.props.addNote(this.state);
+    } else {
+      alert("judul dan isi catatan minimal 5 karakter!");
+    }
   }
 
   render() {
@@ -43,13 +47,13 @@ class NotesInput extends React.Component {
         <div className="add-new-page__input">
           <input
             className="add-new-page__input__title"
-            placeholder="Catatan rahasia..."
+            placeholder="Judul catatan rahasia..."
             contentEditable
             onInput={this.onTitleInputHandler}
           />
           <div
             className="add-new-page__input__body"
-            data-placeholder="sebenarnya saya adalah.."
+            data-placeholder="Isi catatan rahasia.."
             contentEditable
             onInput={this.onBodyInputHandler}
           />

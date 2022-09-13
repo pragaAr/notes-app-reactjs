@@ -60,7 +60,7 @@ class DetailPages extends React.Component {
   }
 
   render() {
-    if (this.state.notes === null) {
+    if (this.state.notes === undefined) {
       return <p>Catatan kosong!</p>;
     }
 
